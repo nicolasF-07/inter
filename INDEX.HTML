@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clube do Povo - SC Internacional</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #8B0000, #FF0000, #DC143C);
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            animation: brilho 1.5s infinite alternate;
+        }
+
+        @keyframes brilho {
+            0% { text-shadow: 0 0 10px rgb(255, 0, 0); }
+            100% { text-shadow: 0 0 20px white; }
+        }
+
+        .logo {
+            width: 200px;
+            margin-top: 20px;
+        }
+
+        .titulo {
+            font-size: 60px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: white;
+            text-shadow: 3px 3px 10px black;
+            animation: pisca 0.5s infinite alternate;
+        }
+
+        @keyframes pisca {
+            0% { color: #ff0000; }
+            100% { color: white; }
+        }
+
+        h2, p {
+            color: white;
+            text-shadow: 2px 2px 8px black;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .jogadores {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .jogadores img {
+            width: 220px;
+            height: 270px;
+            border: 5px solid white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgb(255, 0, 0);
+        }
+
+        .video {
+            margin: 30px auto;
+            width: 80%;
+        }
+
+        video {
+            width: 100%;
+            border: 5px solid white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgb(255, 0, 0);
+        }
+
+        .hino-btn {
+            background-color: rgb(255, 0, 0);
+            color: rgb(255, 255, 255);
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 10px white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <audio id="hino">
+        <source src="hino/hino-do-internacional.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button class="hino-btn" onclick="toggleHino()">Tocar Hino</button>
+    
+    <header>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5IzkeTVVT5Z7YkhvptoP-df8ezEeDvZ9zOg&s" alt="Inter" class="logo">
+        <h1 class="titulo">SC INTERNACIONAL - O MAIOR DO SUL!</h1>
+    </header>
+    
+    <main>
+        <h2>O ÚNICO CAMPEÃO DA LIBERTADORES NO RS!</h2>
+        <p>Tricampeão Brasileiro, Bicampeão da Libertadores, Campeão Mundial e muito mais!</p>
+        
+        <h2>O GRÊMIO TREME!</h2>
+        <p>O Inter tem mais vitórias no Gre-Nal! Aqui o Imortal não sobrevive!</p>
+        
+        <h2>A MAIOR E MELHOR TORCIDA DO SUL!</h2>
+        <p>Vermelho e branco em todo lugar! O Beira-Rio lotado é um caldeirão!</p>
+        
+        <section class="jogadores">
+            <img src="https://e1.pxfuel.com/desktop-wallpaper/571/942/desktop-wallpaper-andres-d-alessandro-red-stone-sc-internacional-joy-sc-internacional.jpg" alt="D'Alessandro">
+            <img src="https://www.rbsdirect.com.br/filestore/4/8/6/9/0/1/5_16cd71b693ca387/5109684_d670e40a5b5afac.jpg?format=webp&w=1600&h=1600&a=c" alt="Vitinho">
+            <img src="https://wallpapers4screen.com/Uploads/10-1-2024/63128/thumb2-enner-valencia-4k-red-neon-lights-internacional-fc-brazilian-serie-a.jpg" alt="valencia">
+        </section>
+
+        <section class="video">
+            <h2>DEITA AQUI EU MANDEI VOCE DEITAR😴😴😴</h2>
+            <video controls>
+                <source src="videos/ssstik.io_@berthe_zx05_1743074949560.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="video">
+            <h2>RATÃO TE APAVOROU 🤣🤣🤣</h2>
+            <video controls>
+                <source src="videos/ssstik.io_@inter_edits_1742830266294.mp4" type="video/mp4">
+
+            </video>
+        </section>
+    </main>
+
+    <script>
+        function toggleHino() {
+            var hino = document.getElementById("hino");
+            var botao = document.querySelector(".hino-btn");
+            
+            if (hino.paused) {
+                hino.play().catch(error => console.log("Erro ao reproduzir: ", error));
+                botao.textContent = "Pausar Hino";
+            } else {
+                hino.pause();
+                botao.textContent = "Tocar Hino";
+            }
+        }
+    </script>
+</body>
+</html>
